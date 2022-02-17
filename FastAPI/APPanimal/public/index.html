@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+    <title>AppAnimal</title>
+</head>
+<body>
+    <h1>AppAnimal - Aplicativo com Cadastro de Animais</h1>
+    
+    <h2>Novo Animal</h2>
+    <form id="form-animal">
+        <input type="text" id="nome" placeholder="Digite o nome do animal"><br>
+        <input type="text" id="idade" placeholder="Digite a idade do animal"><br>
+        <input type="text" id="sexo" placeholder="Digite o sexo do animal"><br>
+        <input type="text" id="cor" placeholder="Digite a cor do animal"><br>
+        <input type="submit" value="Gravar...">
+    </form><br>
+
+    <h2>Animais Cadastrados</h2>
+    <ul id="lista-animais"></ul>
+
+    <h2>Buscar animal pelo id:</h2>
+    <form id="buscar-animal">
+        <input type="text" id="id-buscar-animal" placeholder="id animal que deseja buacar">
+        <input type="submit" value="Buscar...">
+    </form>
+    <ul id="animal-encontrado"></ul>
+
+    <h2>Deletar animal por id:</h2>
+    <form id="deletar">
+        <input type="text" id="id-animal-deletar" placeholder="id animal que deseja deletar">
+        <input type="submit" value="deletar...">
+    </form>
+
+</body>
+</html>
