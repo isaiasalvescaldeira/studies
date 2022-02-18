@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from src.schemas import schemas
 from src.infra.sqlalchemy.models import models
-from sqlalchemy import update, delete
+from sqlalchemy import update, delete, select
 
 #Este arquivo é onde fica todas as querys do meu banco de dados(CRUD)
 #com os métodos do ORM SQLAlchemy
@@ -37,20 +37,25 @@ class RepositorioProduto():
         #agora ele vai retornar o db_produto atualizado com o novo produto
         return db_produto
 
+    def buscarPorId(self, id:int):
+        query_produto = select(models.Produto)\
+            .where(models.Produto.id == id)
+        produto = self.session.execute(query_produto).first()
+        return produto
 
     def listar(self):
         produtos = self.session.query(models.Produto).all()
         return produtos
 
     def editar(self, id: int, produto: schemas.Produto):
-        update_stmt = update(models.Produto).where(
-                        models.Produto.id == id
-                    ).values(
-                                nome=produto.nome,
-                                descricao=produto.descricao,
-                                preco = produto.preco,
-                                disponivel = produto.disponivel
-                            )
+        update_stmt = update(models.Produto)\
+            .where(models.Produto.id == id)\
+                .values(
+                    nome=produto.nome,
+                    descricao=produto.descricao,
+                    preco = produto.preco,
+                    disponivel = produto.disponivel
+                )
         
         self.session.execute(update_stmt)
         self.session.commit()

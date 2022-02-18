@@ -14,7 +14,7 @@ def signup(usuario: schemas.Usuario, session:Session=Depends(get_db)):
     usuario_criado = RepositorioUsuario(session).criar(usuario)
     return usuario_criado
 
-@router.get('/listar-usuarios', response_model=List[schemas.Usuario])
+@router.get('/usuarios', response_model=List[schemas.Usuario])
 def listar_usuarios(session:Session=Depends(get_db)):
     usuarios = RepositorioUsuario(session).listar()
     return usuarios
