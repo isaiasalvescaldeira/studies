@@ -32,7 +32,7 @@ class Pedido(Base):
     id = Column(Integer, primary_key=True, index=True)
     quantidade = Column(Integer)
     tipo_entrega = Column(String)
-    local_endereco = Column(String)
+    local_entrega = Column(String)
     observacoes = Column(String)
 
     usuario_id = Column(Integer, ForeignKey('usuario.id', name='fk_pedido_usuario'))

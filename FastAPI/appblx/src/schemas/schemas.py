@@ -43,13 +43,13 @@ class Produto(BaseModel):
 
 class Pedido(BaseModel):
     id: Optional[int] = None
-    quatindade: int
+    quantidade: int
     tipo_entrega: str
-    local_endereco: Optional[str]
+    local_entrega: Optional[str] = ''
     observacoes: Optional[str] = 'Sem Observações'
 
     usuario_id: Optional[int]
-    produto_id: Optional[str]
+    produto_id: Optional[int]
 
     usuario: Optional[UsuarioSimples]
     produto: Optional[ProdutoSimples]
